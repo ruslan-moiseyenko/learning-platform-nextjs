@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-export const ManeLayoutLoadingSkeleton = () => {
+export const LoadingSkeleton = () => {
   return (
     <div className="landing-skeleton">
       <div className="landing-skeleton__hero">
