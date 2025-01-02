@@ -41,7 +41,7 @@ const NonDashboardNavbar = () => {
           </button>
 
           {/* <SignedIn>
-             <UserButton
+            <UserButton
               appearance={{
                 baseTheme: dark,
                 elements: {

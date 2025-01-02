@@ -16,7 +16,7 @@ const Landing = () => {
   const router = useRouter();
   const currentImage = useCarousel({ totalImages: heroImages.length });
 
-  const { isError, isLoading, data: coursers } = useGetCoursesQuery({});
+  const { isLoading, data: coursers } = useGetCoursesQuery({});
 
   const handleCourseClick = (courseId: string) => {
     router.push(`/search?courseId=${courseId}`);
