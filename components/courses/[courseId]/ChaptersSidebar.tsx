@@ -4,13 +4,13 @@ import {
   ChevronUp,
   FileText,
   CheckCircle,
-  Trophy,
+  Trophy
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/components/ui/sidebar";
-import Loading from "@/components/Loading";
 import { useCourseProgressData } from "@/hooks/useCourseProgressData";
+import { Loading } from "@/components/ui/Loading";
 
 const ChaptersSidebar = () => {
   const router = useRouter();
@@ -24,7 +24,7 @@ const ChaptersSidebar = () => {
     chapterId,
     courseId,
     isLoading,
-    updateChapterProgress,
+    updateChapterProgress
   } = useCourseProgressData();
 
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ const ChaptersSidebar = () => {
 
   const handleChapterClick = (sectionId: string, chapterId: string) => {
     router.push(`/user/courses/${courseId}/chapters/${chapterId}`, {
-      scroll: false,
+      scroll: false
     });
   };
 
@@ -86,7 +86,7 @@ const Section = ({
   expandedSections,
   toggleSection,
   handleChapterClick,
-  updateChapterProgress,
+  updateChapterProgress
 }: {
   section: any;
   index: number;
@@ -156,7 +156,7 @@ const ProgressVisuals = ({
   section,
   sectionProgress,
   completedChapters,
-  totalChapters,
+  totalChapters
 }: {
   section: any;
   sectionProgress: any;
@@ -199,7 +199,7 @@ const ChaptersList = ({
   chapterId,
   courseId,
   handleChapterClick,
-  updateChapterProgress,
+  updateChapterProgress
 }: {
   section: any;
   sectionProgress: any;
@@ -237,9 +237,8 @@ const Chapter = ({
   sectionId,
   sectionProgress,
   chapterId,
-  courseId,
   handleChapterClick,
-  updateChapterProgress,
+  updateChapterProgress
 }: {
   chapter: any;
   index: number;
@@ -269,7 +268,7 @@ const Chapter = ({
   return (
     <li
       className={cn("chapters-sidebar__chapter", {
-        "chapters-sidebar__chapter--current": isCurrentChapter,
+        "chapters-sidebar__chapter--current": isCurrentChapter
       })}
       onClick={() => handleChapterClick(sectionId, chapter.chapterId)}
     >
@@ -284,7 +283,7 @@ const Chapter = ({
       ) : (
         <div
           className={cn("chapters-sidebar__chapter-number", {
-            "chapters-sidebar__chapter-number--current": isCurrentChapter,
+            "chapters-sidebar__chapter-number--current": isCurrentChapter
           })}
         >
           {index + 1}
@@ -293,7 +292,7 @@ const Chapter = ({
       <span
         className={cn("chapters-sidebar__chapter-title", {
           "chapters-sidebar__chapter-title--completed": isCompleted,
-          "chapters-sidebar__chapter-title--current": isCurrentChapter,
+          "chapters-sidebar__chapter-title--current": isCurrentChapter
         })}
       >
         {chapter.title}
