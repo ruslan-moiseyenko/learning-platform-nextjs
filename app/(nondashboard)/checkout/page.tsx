@@ -5,7 +5,7 @@ import { Loading } from "@/components/ui/Loading";
 import { WizardStepper } from "@/components/WizardStepper";
 import { useCheckoutNavigation } from "@/hooks/useCheckoutNavigation";
 import { useUser } from "@clerk/nextjs";
-import React from "react";
+import React, { Suspense } from "react";
 
 const CheckoutWizard = () => {
   const { isLoaded } = useUser();
@@ -34,4 +34,10 @@ const CheckoutWizard = () => {
   );
 };
 
-export default CheckoutWizard;
+export default function CheckoutWizardPage() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <CheckoutWizard />;
+    </Suspense>
+  );
+}

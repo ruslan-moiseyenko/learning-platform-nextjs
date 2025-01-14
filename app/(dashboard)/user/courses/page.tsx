@@ -1,13 +1,13 @@
 "use client";
 
-import Toolbar from "@/components/Toolbar";
 import CourseCard from "@/components/CourseCard";
 import { useGetUserEnrolledCoursesQuery } from "@/state/api";
 import { useRouter } from "next/navigation";
-import Header from "@/components/Header";
 import { useUser } from "@clerk/nextjs";
 import { useState, useMemo } from "react";
-import Loading from "@/components/Loading";
+import { Header } from "@/components/Header";
+import { Loading } from "@/components/ui/Loading";
+import { Toolbar } from "@/components/Toolbar";
 
 const Courses = () => {
   const router = useRouter();
@@ -18,9 +18,9 @@ const Courses = () => {
   const {
     data: courses,
     isLoading,
-    isError,
+    isError
   } = useGetUserEnrolledCoursesQuery(user?.id ?? "", {
-    skip: !isLoaded || !user,
+    skip: !isLoaded || !user
   });
 
   const filteredCourses = useMemo(() => {
@@ -46,12 +46,12 @@ const Courses = () => {
       router.push(
         `/user/courses/${course.courseId}/chapters/${firstChapter.chapterId}`,
         {
-          scroll: false,
+          scroll: false
         }
       );
     } else {
       router.push(`/user/courses/${course.courseId}`, {
-        scroll: false,
+        scroll: false
       });
     }
   };

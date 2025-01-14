@@ -11,7 +11,7 @@ import { api } from "@/state/api";
 /* REDUX STORE */
 const rootReducer = combineReducers({
   global: globalReducer,
-  [api.reducerPath]: api.reducer,
+  [api.reducerPath]: api.reducer
 });
 
 export const makeStore = () => {
@@ -23,23 +23,23 @@ export const makeStore = () => {
           ignoredActions: [
             "api/executeMutation/pending",
             "api/executeMutation/fulfilled",
-            "api/executeMutation/rejected",
+            "api/executeMutation/rejected"
           ],
           ignoredActionPaths: [
             "meta.arg.originalArgs.file",
             "meta.arg.originalArgs.formData",
             "payload.chapter.video",
             "meta.baseQueryMeta.request",
-            "meta.baseQueryMeta.response",
+            "meta.baseQueryMeta.response"
           ],
           ignoredPaths: [
             "global.courseEditor.sections",
             "entities.videos.data",
             "meta.baseQueryMeta.request",
-            "meta.baseQueryMeta.response",
-          ],
-        },
-      }).concat(api.middleware),
+            "meta.baseQueryMeta.response"
+          ]
+        }
+      }).concat(api.middleware)
   });
 };
 
@@ -52,11 +52,11 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 /* PROVIDER */
 export default function StoreProvider({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
-  const storeRef = useRef<AppStore>();
+  const storeRef = useRef<AppStore>(null);
   if (!storeRef.current) {
     storeRef.current = makeStore();
     setupListeners(storeRef.current.dispatch);

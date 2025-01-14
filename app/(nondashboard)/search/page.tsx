@@ -3,7 +3,7 @@ import { Loading } from "@/components/ui/Loading";
 import { useGetCoursesQuery } from "@/state/api";
 import { useRouter, useSearchParams } from "next/navigation";
 // import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CourseCardSearch } from "@/components/CourseCardSearch";
 import { SelectedCourse } from "@/app/(nondashboard)/search/SelectedCourse";
@@ -91,4 +91,10 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default function Page() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Search />
+    </Suspense>
+  );
+}

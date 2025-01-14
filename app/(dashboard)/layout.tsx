@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Loading } from "@/components/ui/Loading";
 import AppSidebar from "@/components/AppSidebar";
-import ChaptersSidebar from "@/components/courses/[courseId]/ChaptersSidebar";
+import ChaptersSidebar from "@/app/(dashboard)/user/courses/[courseId]/ChaptersSidebar";
 import { Navbar } from "@/components/Navbar";
 
 export default function DashboardLayout({
